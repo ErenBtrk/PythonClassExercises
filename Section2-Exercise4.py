@@ -1,22 +1,18 @@
 '''
-5. Write a Python class to find a pair of elements (indices of the two numbers)
-from a given array whose sum equals a specific target number. 
-Input: numbers= [10,20,10,40,50,60,70], target=50
-Output: 3, 4
+4. Write a Python class to get all possible unique subsets from a set
+ of distinct integers.
+Input : [4, 5, 6]
+Output : [[], [6], [5], [5, 6], [4], [4, 6], [4, 5], [4, 5, 6]]
 
 '''
 
-class Pairs:
-    def FindPairs(self,list,target):
-        pairList = []
-        for index in range(len(list)-1):
-            if(list[index] + list[index+1] == target):
-                pairList.append(index)
-                pairList.append(index+1)
-        return pairList
+class py_solution:
+    def sub_sets(self, sset):
+        return self.subsetsRecur([], sorted(sset))
+    
+    def subsetsRecur(self, current, sset):
+        if sset:
+            return self.subsetsRecur(current, sset[1:]) + self.subsetsRecur(current + [sset[0]], sset[1:])
+        return [current]
 
-numbers= [10,20,10,40,50,60,70]
-target=50
-
-print(Pairs().FindPairs(numbers,target))
-
+print(py_solution().sub_sets([4,5,6]))
