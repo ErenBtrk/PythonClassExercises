@@ -1,22 +1,23 @@
 '''
-9. Write a Python class named Student with two attributes student_name, marks.
-Modify the attribute values of the said class and print the original and modified
-values of the said attributes.
+9. Write a Python class which has two methods get_String and print_String.
+get_String accept a string from the user and print_String print the string in upper case.
   
 '''
 
-class Student:
-    student_name = "Ali"
-    marks = "123"
+class Class1:
+    def __init__(self):
+        self.str1 = ""
+    def get_String(self):
+        self.str1 = input("Please enter a string : ")
+    def print_String(self):
+        print(self.str1)
 
-for attr,value in Student.__dict__.items():
-    if(not attr.startswith('_')):
-        print(f"{attr}->{value}")
 
-setattr(Student,"student_name","Veli")
-setattr(Student,"marks","456")
+c1 = Class1()
+c2 = Class1()
 
-for attr,value in Student.__dict__.items():
-    if(not attr.startswith('_')):
-        print(f"{attr}->{value}")
+c1.get_String()
+c1.print_String()
 
+c2.get_String()
+c2.print_String()
